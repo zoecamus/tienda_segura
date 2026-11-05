@@ -57,3 +57,4 @@ jobs:
 
           # Token que GitHub genera automáticamente para el workflow; Gitleaks lo usa para leer la PR.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: docker run --rm -v "$PWD":/src aquasec/trivy:latest config --exit-code 1 --severity HIGH,CRITICAL /src
